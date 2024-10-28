@@ -40,7 +40,7 @@ Update the `.env` file with the necessary details. The environment variables mus
 1. **Start the application using Docker Compose**:
 
 ```bash
-docker-compose up --build
+docker-compose up -d --build
 ```
 
 2. **Access the application**:
