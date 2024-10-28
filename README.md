@@ -69,6 +69,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Some possible improvements
 
+-   **Fetch listings**: Currently, the user has to manually add job listings. It would be beneficial to fetch job listings from popular job boards like Indeed, Glassdoor, etc. This can be done using web scraping or APIs provided by these platforms.
 -   **Improving UI**: The actual UI is very basic and could be improved to provide a better user experience.
 -   **User Authentication**: Implement user authentication to secure the application. As of now, the application supports only 1 user. Some modifications are needed to support multiple users.
 -   **Listing filtering**: Add the ability to filter job listings based on different criteria on the frontend.
