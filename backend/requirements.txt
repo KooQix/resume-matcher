@@ -1,0 +1,10 @@
+pypdf
+mistralai
+
+python-dotenv
+requests
+pydantic
+psycopg2-binary
+fastapi
+uvicorn
+python-multipart

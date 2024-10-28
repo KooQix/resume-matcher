@@ -1,0 +1,12 @@
+**/.env
+**/.env.production
+
+**/data
+**/__pycache__
+**/*.pyc
+**/uploads
+
+
+**/node_modules
+**/.next
+**/out

@@ -1,0 +1,61 @@
+####### Resume #######
+
+### Upload resume
+POST http://localhost:8000/resume/upload/
+Content-Type: multipart/form-data
+...
+
+
+### Download current resume
+GET http://localhost:8000/resume/download
+
+
+### Get whether resume is uploaded
+GET http://localhost:8000/resume
+
+
+####### Listings #######
+
+### Create listing
+POST http://localhost:8000/listings/
+Content-Type: application/json
+
+{
+	"url": "https://www.linkedin.com/jobs/view/4049454997/?refId=d1f5a948-2161-4539-b637-64e9f6d2dfc6&trackingId=ciurR8q%2BTyKGs6XbNWf6ZA%3D%3D",
+	"title": "Software Engineer (Internship)",
+	"company": "Mistral AI",
+	"description": "About the job\nIMPORTANT: To apply, candidates must:\n\n  submit a GitHub repository (ideally),\n complete a project (mandatory)\n\n\nRegarding the project, here are some examples of what you can do according to your preferences and interests:\n\n  Chat Application: Create a chat app using Next.js with our public API\n Python Project: Develop a project in Python using vLLM or a similar technology\n Flexible Topic: Choose a topic using Python with FastAPI or Next.js with TypeScript that incorporates our SDK\n\n\nWe will pay particular attention to best practices:\n\n  Include a detailed README for setup and usage\n Ensure the project is easy to test\n\n\nWe advise you to work at least one hour on the project.\n\nAbout Mistral\n\nAt Mistral AI, we are a tight-knit, nimble team dedicated to bringing our cutting-edge AI technology to the world. Our mission is to make AI ubiquitous and open. \nWe are creative, low-ego, team-spirited, and have been passionate about AI for years. We hire people that foster in competitive environments, because they find them more fun to work in. We hire passionate women and men from all over the world\nOur teams are distributed between France, UK and USA\n\n\nRole Summary\n\nYou will be working in our engineering team and will learn the specifics of AI software, to build internal and external tooling\nThe role is based in Paris \nInternship duration: 3 to 6 months. We will prioritize candidates who can join us full time after a successful internship\n\n\nKey Responsibilities\n\nDevelop user-facing internal and external applications using Mistral AI models for the various purposes enabled by LLM (chatbot, search engines, document answering, …)\nInstrument Mistral AI products with developer-facing tools (e.g. dashboards, evaluation interfaces, …)\n\n\nQualifications & Profile\n\nExcellent skills in full-stack development (Python/Typescript/Javascript)\nStrong ability to create smooth and high quality user experiences, for both developer facing and end-user facing products\nAppetite and experience in front-end development, with mastery of one framework such as ReactJS, Svelte, Vue.js, HTMX, …\nStrong ability in Python back-end development and clean code implementations\nAppetite for constructing AI-based solutions, based on e.g. chat APIs, embedding APIs, etc,\nThe successful candidate can adapt to new technologies very quickly, and can evolve in a quickly changing developing environment\n\n\nProcess Interview\n\nStep 0: Submit your GitHub and project\nStep 1: Coding Interview\nStep 2: System Design Interview\nStep 3: Interview with our Engineering Team Lead\n\n\nBenefits\n\nDaily lunch vouchers \nContribution to a Gympass subscription \nFull health insurance for you and your family"
+}
+
+### Get all listings
+GET http://localhost:8000/listings/?offset=0
+
+
+### Get listings not applied by user
+GET http://localhost:8000/listings/not-applied
+
+### Get listings applied by user
+GET http://localhost:8000/listings/applied
+
+### Get listings not yet processed
+GET http://localhost:8000/listings/not-processed
+
+### Update listing
+PUT http://localhost:8000/listings/1
+Content-Type: application/json
+
+{
+	"applied": true
+}
+
+
+### Delete listing
+DELETE http://localhost:8000/listings/1
+
+
+### Process the listings
+GET http://localhost:8000/listings/process
+
+
+### Checks whether the listings are processing
+GET http://localhost:8000/listings/processing

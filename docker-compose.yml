@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+    app:
+        container_name: FindMeAJob_front
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        ports:
+            - ${FRONT_PORT}:3000
+        depends_on:
+            - db
+            - backend
+        env_file: ./frontend/.env.production
+
+    backend:
+        container_name: FindMeAJob_backend
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        env_file: ./backend/.env
+        ports:
+            - ${API_PORT}:8000
+        depends_on:
+            - db
+    db:
+        image: postgres
+        container_name: FindMeAJob_db
+        restart: unless-stopped
+        ports:
+            - ${DB_PORT}:5432
+
+        environment:
+            POSTGRES_USER: ${DB_USER}
+            POSTGRES_PASSWORD: ${DB_PASS}
+            POSTGRES_DB: ${DB_NAME}
+
+        volumes:
+            - postgres_data:/var/lib/postgresql/data # docker volume: postgres_data
+            - ./backend/src/db/db.sql:/docker-entrypoint-initdb.d/init.sql # Create a database and tables on the first run
+
+volumes:
+    postgres_data:
